@@ -1,0 +1,1573 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	overflow: hidden;
+	margin: 0;
+	background: #000;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#game {
+	padding-top: 1px;
+	font-size: 30px;
+	width: 320px;
+	margin: auto;
+	position: relative;
+}
+
+.main {
+	width: 320px;
+	height: 620px;
+	margin: 2px auto 0;
+	border: 10px solid silver;
+	font-size: 0;
+}
+
+.cell {
+	width: 30px;
+	height: 30px;
+	border: 1px solid silver;
+	display: inline-block;
+}
+
+.movingCell {
+	background-color: blue;
+}
+
+.fixedCell {
+	background-color: green;
+}
+
+#next-tetro {
+	position: absolute;
+	top: 258px;
+	left: -177px;
+	font-size: 0;
+}
+#next-tetro2 {
+	position: absolute;
+	top: 73px;
+	left: -177px;
+	max-width: 197px;
+}
+
+#game-over {
+	font-size: 100px;
+	color: green;
+	text-align: center;
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+button#start {
+    min-width: 100px;
+    font-family: inherit;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #4676d7;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    float:left;
+    margin-bottom: 6px;
+}
+button#start:hover {
+	background: #1d49aa;
+}
+
+button#start:focus {
+	outline: none;
+	box-shadow: 0 0 0 1px #cbd6ee;
+}
+div#next-tetro3 {
+    position: absolute;
+    top: 420px;
+    width: 636px;
+    left: -148px;
+    height: 100px;
+    z-index: 99;
+}
+button#pause {
+    min-width: 100px;
+    font-family: inherit;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #9346d7;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    float:left
+    
+}
+button#pause:hover {
+	background: #1d49aa;
+}
+
+button#pause:focus {
+	outline: none;
+	box-shadow: 0 0 0 1px #cbd6ee;
+}
+div#knopka_left:after {content: '';position: absolute;width: 100%;height: 100%;background-size: cover;/* left: 0; */background-size: contain;left: 7px;background-image: url(left_white.png);background-repeat: no-repeat;z-index: 5;}
+div#knopka_right:after {content: '';position: absolute;width: 100%;height: 105%;right: 2%;background-size: contain;background-image: url(right_white.png);background-repeat: no-repeat;}
+div#knopka_top:after {content: '';position: absolute;width: 100%;height: 213%;background-size: cover;/* left: 0; */background-size: contain;top: 0px;background-image: url(reverse_white.png);background-repeat: no-repeat;z-index: 5;width: 100%;height: 100%;right: 0%;}
+div#knopka_down:after {content: '';position: absolute;width: 100%;height: 213%;top: -7%;background-size: contain;background-image: url(down_white.png);background-repeat: no-repeat;width: 100%;height: 109%;background-size: cover;/* left: 0; */background-size: contain;left: 7px;}
+div#gameover {
+    width: 100%;
+    float: left;
+    position: absolute;
+    top: 39%;
+    /* max-width: 400px; */
+    line-height: 53px;
+    text-align: center;
+    margin: auto;
+    font-size: xx-large;
+    color: #575353;
+    display:none;
+    z-index: 2;
+}
+
+div#gameover a {
+    color: #ffffff;
+    text-decoration: none;
+    background: rgb(0 0 0 / 50%);
+}
+div#gamevin {
+    width: 100%;
+    float: left;
+    position: absolute;
+    top: 44%;
+    /* max-width: 400px; */
+    line-height: 53px;
+    text-align: center;
+    margin: auto;
+    font-size: xx-large;
+    color: #575353;
+    display:none;
+    z-index: 2;
+}
+
+div#gamevin a {
+    color: #575353;
+    text-decoration: none;
+}
+div.bodyend {
+    opacity: 0.4;
+    background:rgb(128 171 193 / 0%) !important;
+}
+
+div.instaall {
+    width: 100%;
+    background: 0 0;
+    padding: 15px;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    float: left;
+    width: 100%;
+    /* height: 50px; */
+    outline: none;
+    border: 1px solid #c0c0c0;
+    font-size: medium;
+    cursor: pointer;
+    color: white;
+}
+div.instaall label {
+    float: left;
+    /* line-height: 37px; */
+    width: 100%;
+    /* height: 50px; */
+    position: relative;
+    /* -webkit-transform: rotate(269deg); */
+    -moz-transform: rotate(269deg);
+    -ms-transform: rotate(269deg);
+    -o-transform: rotate(269deg);
+    /* transform: rotate(269deg); */
+    cursor: pointer;
+    color: white;
+    text-align: center;
+}
+div#knopka_left {
+    color: transparent;
+    position: absolute;
+    width: 258px;
+    cursor: pointer;
+    height: 96px;
+}
+div#knopka_right {
+    position: absolute;
+    right: 10px;
+    color: transparent;
+    cursor: pointer;
+    height: 94px;
+    width: 113px;
+}
+
+div#knopka_top {
+    position: absolute;
+    right: 27px;
+    color: transparent;
+    cursor: pointer;
+    height: 101px;
+    width: 101px;
+    top: 106%;
+}
+.share {
+    color: #ffffff;
+    text-decoration: none;
+    background: rgb(0 0 0 / 50%);
+}
+div#knopka_down {
+    position: absolute;
+    left: 0;
+    color: transparent;
+    cursor: pointer;
+    height: 85px;
+    width: 128px;
+    top: 115%;
+}
+@media screen and (max-width: 350px) {
+	* {
+		box-sizing: border-box;
+	}
+	
+	body {
+		margin: 0;
+		background: #000;
+		color: #fff;
+		font-family: Arial, Helvetica, sans-serif;
+		width: 320px;
+		float: left;
+		padding: 0;
+		height: 100vh;
+		overflow: hidden;
+	}
+	
+	#game {
+		padding-top: 0px;
+		font-size: 1.2em;
+		width: 320px;
+		margin: 0 auto;
+		position: relative;
+		float: right;
+	}
+	
+	.main {
+		width: 210px;
+		height: 410px;
+		margin: 0px auto;
+		border: 5px solid silver;
+		font-size: 0;
+		float: right;
+	}
+	
+	.cell {
+		width: 20px;
+		height: 20px;
+		border: 1px solid silver;
+		display: inline-block;
+	}
+	
+	.movingCell {
+		background-color: blue;
+	}
+	
+	.fixedCell {
+		background-color: green;
+	}
+	
+	#next-tetro {
+		position: absolute;
+		top: 50%;
+		left: 8px;
+		font-size: 0;
+	}
+	#next-tetro2 {
+		position: absolute;
+		top: 7%;
+		left: 0px;
+		max-width: 131px;
+	}
+	
+	#game-over {
+		font-size: 100px;
+		color: green;
+		text-align: center;
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	button#start {
+		min-width: 85px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #4676d7;
+		color: #fff;
+		padding: 9px 9px;
+		font-size: 1rem;
+		cursor: pointer;
+		float:left;
+		margin-bottom: 6px;
+	}
+	button#start:hover {
+		background: #1d49aa;
+	}
+	
+	button#start:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#next-tetro3 {
+		position: absolute;
+		bottom: auto;
+		width: 100%;
+		left: 0;
+		height: 100vh;
+		z-index: 2;
+		top: 68%;
+	}
+	button#pause {
+		min-width: 107px;
+		max-width: 110px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #9346d7;
+		color: #fff;
+		padding: 7px 1px;
+		font-size: 1rem;
+		cursor: pointer;
+		float:left;
+		margin: 0px 0 8px 0;
+	}
+	button#pause:hover {
+		background: #1d49aa;
+	}
+	
+	button#pause:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#knopka_left:after {content: '';position: absolute;width: 100%;height: 100%;background-size: contain;left: 7px;background-image: url(left_white.png);background-repeat: no-repeat;z-index: 5;}
+	div#knopka_right:after {content: '';position: absolute;width: 100%;height: 100%;right: 0%;background-size: contain;background-image: url(right_white.png);background-repeat: no-repeat;}
+	div#knopka_top:after {content: '';position: absolute;width: 100%;height: 213%;background-size: cover;/* left: 0; */background-size: contain;top: 0px;background-image: url(reverse_white.png);background-repeat: no-repeat;z-index: 5;width: 110%;height: 97%;right: 0%;}
+	div#knopka_down:after {content: '';position: absolute;width: 100%;height: 213%;top: 0%;background-size: contain;background-image: url(down_white.png);background-repeat: no-repeat;width: 100%;height: 109%;background-size: cover;/* left: 0; */background-size: contain;left: 0px;}
+	div#gameover {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 22%;
+		/* max-width: 400px; */
+		line-height: 41px;
+		text-align: center;
+		margin: auto;
+		font-size: x-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+		background: rgb(0 0 0 / 40%);
+	}
+	
+	div#gameover a {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+	}
+	div#gamevin {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 44%;
+		/* max-width: 400px; */
+		line-height: 53px;
+		text-align: center;
+		margin: auto;
+		font-size: xx-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+	}
+	
+	div#gamevin a {
+		color: #575353;
+		text-decoration: none;
+	}
+	div.bodyend {
+		opacity: 0.4;
+		background:rgb(128 171 193 / 0%) !important;
+	}
+	
+	div.instaall {
+		width: 100%;
+		background: 0 0;
+		padding: 15px;
+		position: fixed;
+		z-index: 1;
+		bottom: 0;
+		float: left;
+		width: 100%;
+		/* height: 50px; */
+		outline: none;
+		border: 1px solid #c0c0c0;
+		font-size: medium;
+		cursor: pointer;
+		color: white;
+	}
+	div.instaall label {
+		float: left;
+		/* line-height: 37px; */
+		width: 100%;
+		/* height: 50px; */
+		position: relative;
+		/* -webkit-transform: rotate(269deg); */
+		-moz-transform: rotate(269deg);
+		-ms-transform: rotate(269deg);
+		-o-transform: rotate(269deg);
+		/* transform: rotate(269deg); */
+		cursor: pointer;
+		color: white;
+		text-align: center;
+	}
+	div#knopka_left {
+		color: transparent;
+		position: absolute;
+		width: 100px;
+		cursor: pointer;
+		height: 78px;
+		bottom: auto;
+		left: 0;
+		top: 24%;
+	}
+	div#knopka_right {
+		position: absolute;
+		right: 0%;
+		color: transparent;
+		cursor: pointer;
+		width: 82px;
+		height: 78px;
+		top: 24%;
+	}
+	
+	div#knopka_top {
+		position: absolute;
+		left: 3%;
+		color: transparent;
+		cursor: pointer;
+		height: 91px;
+		width: 80px;
+		top: 6%;
+	}
+	.share {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+	}
+	div#knopka_down {
+		position: absolute;
+		left: 38%;
+		color: transparent;
+		cursor: pointer;
+		height: 85px;
+		width: 79px;
+		top: 24%;
+	}
+	html {
+		width: 320px;
+		float: left;
+		overflow-x: hidden;
+	}
+	.level {
+		padding-left: 4px;
+	}
+	
+	.score {
+		padding-left: 4px;
+	}
+}
+@media screen and (max-width: 400px) {
+	* {
+		box-sizing: border-box;
+	}
+	
+	body {
+		margin: 0;
+		background: #000;
+		color: #fff;
+		font-family: Arial, Helvetica, sans-serif;
+		width: 360px;
+		float: left;
+		padding: 0;
+		height: 100vh;
+		overflow: hidden;
+	}
+	
+	#game {
+		padding-top: 0px;
+		font-size: 1.2em;
+		width: 360px;
+		margin: 0 auto;
+		position: relative;
+		float: right;
+	}
+	
+	.main {
+		width: 210px;
+		height: 410px;
+		margin: 0px auto;
+		border: 5px solid silver;
+		font-size: 0;
+		float: right;
+	}
+	
+	.cell {
+		width: 20px;
+		height: 20px;
+		border: 1px solid silver;
+		display: inline-block;
+	}
+	
+	.movingCell {
+		background-color: blue;
+	}
+	
+	.fixedCell {
+		background-color: green;
+	}
+	
+	#next-tetro {
+		position: absolute;
+		top: 50%;
+		left: 8px;
+		font-size: 0;
+	}
+	#next-tetro2 {
+		position: absolute;
+		top: 7%;
+		left: 0px;
+		max-width: 131px;
+	}
+	
+	#game-over {
+		font-size: 100px;
+		color: green;
+		text-align: center;
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	button#start {
+		min-width: 85px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #4676d7;
+		color: #fff;
+		padding: 9px 9px;
+		font-size: 1rem;
+		cursor: pointer;
+		float:left;
+		margin-bottom: 6px;
+	}
+	button#start:hover {
+		background: #1d49aa;
+	}
+	
+	button#start:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#next-tetro3 {
+		position: absolute;
+		bottom: auto;
+		width: 100%;
+		left: 0;
+		height: 100vh;
+		z-index: 2;
+		top: 68%;
+	}
+	button#pause {
+		min-width: 107px;
+		max-width: 110px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #9346d7;
+		color: #fff;
+		padding: 7px 1px;
+		font-size: 1rem;
+		cursor: pointer;
+		float:left;
+		margin: 0px 0 8px 0;
+	}
+	button#pause:hover {
+		background: #1d49aa;
+	}
+	
+	button#pause:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#knopka_left:after {content: '';position: absolute;width: 100%;height: 100%;background-size: contain;left: 7px;background-image: url(left_white.png);background-repeat: no-repeat;z-index: 5;}
+	div#knopka_right:after {content: '';position: absolute;width: 100%;height: 100%;right: 0%;background-size: contain;background-image: url(right_white.png);background-repeat: no-repeat;}
+	div#knopka_top:after {content: '';position: absolute;width: 100%;height: 213%;background-size: cover;/* left: 0; */background-size: contain;top: 0px;background-image: url(reverse_white.png);background-repeat: no-repeat;z-index: 5;width: 110%;height: 97%;right: 0%;}
+	div#knopka_down:after {content: '';position: absolute;width: 100%;height: 213%;top: 0%;background-size: contain;background-image: url(down_white.png);background-repeat: no-repeat;width: 100%;height: 109%;background-size: cover;/* left: 0; */background-size: contain;left: 0px;}
+	div#gameover {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 22%;
+		/* max-width: 400px; */
+		line-height: 41px;
+		text-align: center;
+		margin: auto;
+		font-size: x-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+		background: rgb(0 0 0 / 40%);
+	}
+	
+	div#gameover a {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+	}
+	div#gamevin {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 44%;
+		/* max-width: 400px; */
+		line-height: 53px;
+		text-align: center;
+		margin: auto;
+		font-size: xx-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+	}
+	
+	div#gamevin a {
+		color: #575353;
+		text-decoration: none;
+	}
+	div.bodyend {
+		opacity: 0.4;
+		background:rgb(128 171 193 / 0%) !important;
+	}
+	
+	div.instaall {
+		width: 100%;
+		background: 0 0;
+		padding: 15px;
+		position: fixed;
+		z-index: 1;
+		bottom: 0;
+		float: left;
+		width: 100%;
+		/* height: 50px; */
+		outline: none;
+		border: 1px solid #c0c0c0;
+		font-size: medium;
+		cursor: pointer;
+		color: white;
+	}
+	div.instaall label {
+		float: left;
+		/* line-height: 37px; */
+		width: 100%;
+		/* height: 50px; */
+		position: relative;
+		/* -webkit-transform: rotate(269deg); */
+		-moz-transform: rotate(269deg);
+		-ms-transform: rotate(269deg);
+		-o-transform: rotate(269deg);
+		/* transform: rotate(269deg); */
+		cursor: pointer;
+		color: white;
+		text-align: center;
+	}
+	div#knopka_left {
+		color: transparent;
+		position: absolute;
+		width: 100px;
+		cursor: pointer;
+		height: 78px;
+		bottom: auto;
+		left: 0;
+		top: 24%;
+	}
+	div#knopka_right {
+		position: absolute;
+		right: 0%;
+		color: transparent;
+		cursor: pointer;
+		width: 82px;
+		height: 78px;
+		top: 24%;
+	}
+	
+	div#knopka_top {
+		position: absolute;
+		left: 3%;
+		color: transparent;
+		cursor: pointer;
+		height: 91px;
+		width: 80px;
+		top: 6%;
+	}
+	.share {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+	}
+	div#knopka_down {
+		position: absolute;
+		left: 38%;
+		color: transparent;
+		cursor: pointer;
+		height: 85px;
+		width: 79px;
+		top: 24%;
+	}
+	html {
+		width: 360px;
+		float: left;
+		overflow-x: hidden;
+	}
+	.level {
+		padding-left: 4px;
+	}
+	
+	.score {
+		padding-left: 4px;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	* {
+		box-sizing: border-box;
+	}
+	
+	body {
+		margin: 0;
+		background: #000;
+		color: #fff;
+		font-family: Arial, Helvetica, sans-serif;
+		width: 414px;
+		float: left;
+		padding: 0;
+		height: 100vh;
+		overflow: hidden;
+	}
+	
+	#game {
+		padding-top: 0px;
+		font-size: 1.2em;
+		width: 414px;
+		margin: 0 auto;
+		position: relative;
+		float: right;
+	}
+	
+	.main {
+		width: 251px;
+		height: 491px;
+		margin: 0px auto;
+		border: 5px solid silver;
+		font-size: 0;
+		float: right;
+	}
+	
+	.cell {
+		width: 24px;
+		height: 24px;
+		border: 1px solid silver;
+		display: inline-block;
+	}
+	
+	.movingCell {
+		background-color: blue;
+	}
+	
+	.fixedCell {
+		background-color: green;
+	}
+	
+	#next-tetro {
+		position: absolute;
+		top: 50%;
+		left: 8px;
+		font-size: 0;
+	}
+	#next-tetro2 {
+		position: absolute;
+		top: 7%;
+		left: 0px;
+		max-width: 154px;
+	}
+	
+	#game-over {
+		font-size: 100px;
+		color: green;
+		text-align: center;
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	button#start {
+		min-width: 85px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #4676d7;
+		color: #fff;
+		padding: 11px 27px;
+		font-size: 1rem;
+		cursor: pointer;
+		float:left;
+		margin-bottom: 6px;
+	}
+	button#start:hover {
+		background: #1d49aa;
+	}
+	
+	button#start:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#next-tetro3 {
+		position: absolute;
+		bottom: auto;
+		width: 100%;
+		left: 0;
+		height: 100vh;
+		z-index: 2;
+		top: 75%;
+	}
+	button#pause {
+		min-width: 107px;
+		max-width: 160px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #9346d7;
+		color: #fff;
+		padding: 12px 6px;
+		font-size: 1rem;
+		cursor: pointer;
+		float:left;
+		margin: 0px 0 8px 0;
+	}
+	button#pause:hover {
+		background: #1d49aa;
+	}
+	
+	button#pause:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#knopka_left:after {content: '';position: absolute;width: 101%;height: 100%;background-size: contain;left: 7px;background-image: url(left_white.png);background-repeat: no-repeat;z-index: 5;}
+	div#knopka_right:after {content: '';position: absolute;width: 100%;height: 100%;right: 0%;background-size: contain;background-image: url(right_white.png);background-repeat: no-repeat;}
+	div#knopka_top:after {content: '';position: absolute;width: 100%;height: 213%;background-size: cover;/* left: 0; */background-size: contain;top: 0px;background-image: url(reverse_white.png);background-repeat: no-repeat;z-index: 5;width: 110%;height: 97%;right: 0%;}
+	div#knopka_down:after {content: '';position: absolute;width: 100%;height: 213%;top: 0%;background-size: contain;background-image: url(down_white.png);background-repeat: no-repeat;width: 100%;height: 109%;background-size: cover;/* left: 0; */background-size: contain;left: 0px;}
+	div#gameover {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 22%;
+		/* max-width: 400px; */
+		line-height: 41px;
+		text-align: center;
+		margin: auto;
+		font-size: x-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+		background: rgb(0 0 0 / 40%);
+	}
+	
+	div#gameover a {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+	}
+	div#gamevin {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 44%;
+		/* max-width: 400px; */
+		line-height: 53px;
+		text-align: center;
+		margin: auto;
+		font-size: xx-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+	}
+	
+	div#gamevin a {
+		color: #575353;
+		text-decoration: none;
+	}
+	div.bodyend {
+		opacity: 0.4;
+		background:rgb(128 171 193 / 0%) !important;
+	}
+	
+	div.instaall {
+		width: 100%;
+		background: 0 0;
+		padding: 15px;
+		position: fixed;
+		z-index: 1;
+		bottom: 0;
+		float: left;
+		width: 100%;
+		/* height: 50px; */
+		outline: none;
+		border: 1px solid #c0c0c0;
+		font-size: medium;
+		cursor: pointer;
+		color: white;
+	}
+	div.instaall label {
+		float: left;
+		/* line-height: 37px; */
+		width: 100%;
+		/* height: 50px; */
+		position: relative;
+		/* -webkit-transform: rotate(269deg); */
+		-moz-transform: rotate(269deg);
+		-ms-transform: rotate(269deg);
+		-o-transform: rotate(269deg);
+		/* transform: rotate(269deg); */
+		cursor: pointer;
+		color: white;
+		text-align: center;
+	}
+	div#knopka_left {
+		color: transparent;
+		position: absolute;
+		bottom: auto;
+		left: 0;
+		top: 24%;
+		width: 117px;
+		cursor: pointer;
+		height: 117px;
+	}
+	div#knopka_right {
+		position: absolute;
+		right: 1%;
+		color: transparent;
+		width: 115px;
+		cursor: pointer;
+		height: 117px;
+		top: 24%;
+	}
+	
+	div#knopka_top {
+		position: absolute;
+		left: 3%;
+		color: transparent;
+		top: 6%;
+		width: 110px;
+		cursor: pointer;
+		height: 115px;
+	}
+	.share {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+	}
+	div#knopka_down {
+		position: absolute;
+		left: 36%;
+		color: transparent;
+		top: 24%;
+		width: 118px;
+		cursor: pointer;
+		height: 115px;
+	}
+	html {
+		width: 414px;
+		float: left;
+		overflow-x: hidden;
+	}
+	.level {
+		padding-left: 4px;
+	}
+	
+	.score {
+		padding-left: 4px;
+	}
+}
+
+@media screen and (min-width: 750px) and (max-width: 780px) {
+	* {
+		box-sizing: border-box;
+	}
+	
+	body {
+		margin: 0;
+		background: #000;
+		color: #fff;
+		font-family: Arial, Helvetica, sans-serif;
+		width: 768px;
+		float: left;
+		padding: 5px;
+		height: 100vh;
+		overflow: hidden;
+	}
+	
+	#game {
+		padding-top: 0px;
+		font-size: 1.2em;
+		width: 768px;
+		margin: 0 auto;
+		position: relative;
+		float: right;
+	}
+	
+	.main {
+		width: 363px;
+		height: 715px;
+		margin: 0px auto;
+		border: 5px solid silver;
+		font-size: 0;
+		float: right;
+		margin: 22px 38px 0 0;
+	}
+	
+	.cell {
+		width: 35px;
+		height: 35px;
+		border: 1px solid silver;
+		display: inline-block;
+	}
+	
+	.movingCell {
+		background-color: blue;
+	}
+	
+	.fixedCell {
+		background-color: green;
+	}
+	
+	#next-tetro {
+		position: absolute;
+		top: 50%;
+		left: 8px;
+		font-size: 0;
+	}
+	#next-tetro2 {
+		position: absolute;
+		top: 7%;
+		left: 18px;
+		max-width: 331px;
+	}
+	
+	#game-over {
+		font-size: 100px;
+		color: green;
+		text-align: center;
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	button#start {
+		min-width: 85px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #4676d7;
+		color: #fff;
+		padding: 11px 27px;
+		font-size: 2rem;
+		cursor: pointer;
+		float:left;
+		margin-bottom: 6px;
+	}
+	button#start:hover {
+		background: #1d49aa;
+	}
+	
+	button#start:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#next-tetro3 {
+		position: absolute;
+		bottom: auto;
+		width: 100%;
+		left: 0;
+		height: 100vh;
+		z-index: 2;
+		top: 75%;
+	}
+	button#pause {
+		min-width: 181px;
+		max-width: 236px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #9346d7;
+		color: #fff;
+		padding: 12px 6px;
+		font-size: 2rem;
+		cursor: pointer;
+		float:left;
+		margin: 0px 0 8px 0;
+	}
+	button#pause:hover {
+		background: #1d49aa;
+	}
+	
+	button#pause:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#knopka_left:after {content: '';position: absolute;width: 101%;height: 100%;background-size: contain;left: 7px;background-image: url(left_white.png);background-repeat: no-repeat;z-index: 5;}
+	div#knopka_right:after {content: '';position: absolute;width: 100%;height: 100%;right: 0%;background-size: contain;background-image: url(right_white.png);background-repeat: no-repeat;}
+	div#knopka_top:after {content: '';position: absolute;width: 100%;height: 213%;background-size: cover;/* left: 0; */background-size: contain;top: 0px;background-image: url(reverse_white.png);background-repeat: no-repeat;z-index: 5;width: 110%;height: 97%;right: 0%;}
+	div#knopka_down:after {content: '';position: absolute;width: 100%;height: 213%;top: 0%;background-size: contain;background-image: url(down_white.png);background-repeat: no-repeat;width: 100%;height: 109%;background-size: cover;/* left: 0; */background-size: contain;left: 0px;}
+	div#gameover {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 28%;
+		/* max-width: 400px; */
+		line-height: 41px;
+		text-align: center;
+		margin: auto;
+		padding: 5%;
+		font-size: x-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+		background: rgb(0 0 0 / 40%);
+	}
+	
+	div#gameover a {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+		font-size: 1.7em;
+	}
+	div#gamevin {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 44%;
+		/* max-width: 400px; */
+		line-height: 53px;
+		text-align: center;
+		margin: auto;
+		font-size: xx-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+	}
+	
+	div#gamevin a {
+		color: #575353;
+		text-decoration: none;
+	}
+	div.bodyend {
+		opacity: 0.4;
+		background:rgb(128 171 193 / 0%) !important;
+	}
+	
+	div.instaall {
+		width: 100%;
+		background: 0 0;
+		padding: 15px;
+		position: fixed;
+		z-index: 3;
+		bottom: 0;
+		float: left;
+		width: 100%;
+		/* height: 50px; */
+		outline: none;
+		border: 1px solid #c0c0c0;
+		font-size: x-large;
+		cursor: pointer;
+		color: white;
+	}
+	div.instaall label {
+		float: left;
+		/* line-height: 37px; */
+		width: 100%;
+		/* height: 50px; */
+		position: relative;
+		/* -webkit-transform: rotate(269deg); */
+		-moz-transform: rotate(269deg);
+		-ms-transform: rotate(269deg);
+		-o-transform: rotate(269deg);
+		/* transform: rotate(269deg); */
+		cursor: pointer;
+		color: white;
+		text-align: center;
+	}
+	div#knopka_left {
+		color: transparent;
+		position: absolute;
+		bottom: auto;
+		left: 5%;
+		top: 22%;
+		width: 160px;
+		cursor: pointer;
+		height: 160px;
+	}
+	div#knopka_right {
+		position: absolute;
+		right: 5%;
+		color: transparent;
+		top: 22%;
+		width: 160px;
+		cursor: pointer;
+		height: 160px;
+	}
+	
+	div#knopka_top {
+		position: absolute;
+		left: 8%;
+		color: transparent;
+		top: 2%;
+		width: 160px;
+		cursor: pointer;
+		height: 160px;
+	}
+	.share {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+		font-size: 1.7em;
+		line-height: 2.7em;
+	}
+	div#knopka_down {
+		position: absolute;
+		left: 40%;
+		color: transparent;
+		top: 22%;
+		width: 160px;
+		cursor: pointer;
+		height: 160px;
+	}
+	html {
+		width: 768px;
+		float: left;
+		overflow-x: hidden;
+	}
+	.level {
+		padding-left: 4px;
+		width: 100%;
+		float: left;
+		font-size: 3em;
+	}
+	
+	.score {
+		padding-left: 4px;
+		width: 100%;
+		float: left;
+		font-size: 3em;
+	}
+}
+
+@media screen and (min-width: 781px) and (max-width: 850px) {
+		
+	body {
+		margin: 0;
+		background: #000;
+		color: #fff;
+		font-family: Arial, Helvetica, sans-serif;
+		width: 800px;
+		float: left;
+		padding: 5px;
+		height: 100vh;
+		overflow: hidden;
+	}
+	
+	#game {
+		padding-top: 0px;
+		font-size: 1.2em;
+		width: 800px;
+		margin: 0 auto;
+		position: relative;
+		float: right;
+	}
+	
+	.main {
+		width: 411px;
+		height: 813px;
+		margin: 0px auto;
+		border: 5px solid silver;
+		font-size: 0;
+		float: right;
+		margin: 22px 38px 0 0;
+	}
+	
+	.cell {
+		width: 40px;
+		height: 40px;
+		border: 1px solid silver;
+		display: inline-block;
+	}
+	
+	.movingCell {
+		background-color: blue;
+	}
+	
+	.fixedCell {
+		background-color: green;
+	}
+	
+	#next-tetro {
+		position: absolute;
+		top: 50%;
+		left: 26px;
+		font-size: 0;
+	}
+	#next-tetro2 {
+		position: absolute;
+		top: 7%;
+		left: 18px;
+		max-width: 331px;
+	}
+	
+	#game-over {
+		font-size: 100px;
+		color: green;
+		text-align: center;
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	button#start {
+		min-width: 85px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #4676d7;
+		color: #fff;
+		padding: 11px 27px;
+		font-size: 2rem;
+		cursor: pointer;
+		float:left;
+		margin-bottom: 6px;
+	}
+	button#start:hover {
+		background: #1d49aa;
+	}
+	
+	button#start:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#next-tetro3 {
+		position: absolute;
+		bottom: auto;
+		width: 100%;
+		left: 0;
+		height: 100vh;
+		z-index: 2;
+		top: 75%;
+	}
+	button#pause {
+		min-width: 181px;
+		max-width: 236px;
+		font-family: inherit;
+		appearance: none;
+		border: 0;
+		border-radius: 2px;
+		background: #9346d7;
+		color: #fff;
+		padding: 12px 6px;
+		font-size: 2rem;
+		cursor: pointer;
+		float:left;
+		margin: 0px 0 8px 0;
+	}
+	button#pause:hover {
+		background: #1d49aa;
+	}
+	
+	button#pause:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #cbd6ee;
+	}
+	div#knopka_left:after {content: '';position: absolute;width: 101%;height: 100%;background-size: contain;left: 7px;background-image: url(left_white.png);background-repeat: no-repeat;z-index: 5;}
+	div#knopka_right:after {content: '';position: absolute;width: 100%;height: 100%;right: 0%;background-size: contain;background-image: url(right_white.png);background-repeat: no-repeat;}
+	div#knopka_top:after {content: '';position: absolute;width: 100%;height: 213%;background-size: cover;/* left: 0; */background-size: contain;top: 0px;background-image: url(reverse_white.png);background-repeat: no-repeat;z-index: 5;width: 110%;height: 97%;right: 0%;}
+	div#knopka_down:after {content: '';position: absolute;width: 100%;height: 213%;top: 0%;background-size: contain;background-image: url(down_white.png);background-repeat: no-repeat;width: 100%;height: 109%;background-size: cover;/* left: 0; */background-size: contain;left: 0px;}
+	div#gameover {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 28%;
+		/* max-width: 400px; */
+		line-height: 41px;
+		text-align: center;
+		margin: auto;
+		padding: 5%;
+		font-size: x-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+		background: rgb(0 0 0 / 40%);
+	}
+	
+	div#gameover a {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+		font-size: 1.7em;
+	}
+	div#gamevin {
+		width: 100%;
+		float: left;
+		position: absolute;
+		top: 44%;
+		/* max-width: 400px; */
+		line-height: 53px;
+		text-align: center;
+		margin: auto;
+		font-size: xx-large;
+		color: #575353;
+		display:none;
+		z-index: 2;
+	}
+	
+	div#gamevin a {
+		color: #575353;
+		text-decoration: none;
+	}
+	div.bodyend {
+		opacity: 0.4;
+		background:rgb(128 171 193 / 0%) !important;
+	}
+	
+	div.instaall {
+		width: 100%;
+		background: 0 0;
+		padding: 15px;
+		position: fixed;
+		z-index: 3;
+		bottom: 0;
+		float: left;
+		width: 100%;
+		/* height: 50px; */
+		outline: none;
+		border: 1px solid #c0c0c0;
+		font-size: x-large;
+		cursor: pointer;
+		color: white;
+	}
+	div.instaall label {
+		float: left;
+		/* line-height: 37px; */
+		width: 100%;
+		/* height: 50px; */
+		position: relative;
+		/* -webkit-transform: rotate(269deg); */
+		-moz-transform: rotate(269deg);
+		-ms-transform: rotate(269deg);
+		-o-transform: rotate(269deg);
+		/* transform: rotate(269deg); */
+		cursor: pointer;
+		color: white;
+		text-align: center;
+	}
+	div#knopka_left {
+		color: transparent;
+		position: absolute;
+		bottom: auto;
+		left: 5%;
+		top: 22%;
+		width: 160px;
+		cursor: pointer;
+		height: 160px;
+	}
+	div#knopka_right {
+		position: absolute;
+		right: 5%;
+		color: transparent;
+		top: 22%;
+		width: 160px;
+		cursor: pointer;
+		height: 160px;
+	}
+	
+	div#knopka_top {
+		position: absolute;
+		left: 8%;
+		color: transparent;
+		top: 2%;
+		width: 160px;
+		cursor: pointer;
+		height: 160px;
+	}
+	.share {
+		color: #ffffff;
+		text-decoration: none;
+		background: rgb(0 0 0 / 50%);
+		font-size: 1.7em;
+		line-height: 2.7em;
+	}
+	div#knopka_down {
+		position: absolute;
+		left: 40%;
+		color: transparent;
+		top: 22%;
+		width: 160px;
+		cursor: pointer;
+		height: 160px;
+	}
+	html {
+		width: 768px;
+		float: left;
+		overflow-x: hidden;
+	}
+	.level {
+		padding-left: 4px;
+		width: 100%;
+		float: left;
+		font-size: 3em;
+	}
+	
+	.score {
+		padding-left: 4px;
+		width: 100%;
+		float: left;
+		font-size: 3em;
+	}
+}

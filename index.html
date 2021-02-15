@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<link rel="icon" href="favicon.png"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="theme-color" content="#fff">
+		<link rel="apple-touch-icon" sizes="150x150" href="https://game.bigdatamicrodata.pp.ua/ru/tetris/img-app/icon-150x150.png">
+		 
+			<meta charset="UTF-8">
+			<title>Тетрис - Игра Онлайн</title>
+			<link href="https://game.bigdatamicrodata.pp.ua/ru/tetris" rel="canonical" /> 
+			<meta name="description" content="Играйте в Тетрис, бесплатную онлайн игру на Game.BigDataMicroData! Кликните сейчас, чтобы играть в Тетрис. Наслаждайтесь наилучшими играми, относящимися к Тетрис." />
+			<meta name="keywords" content="Аркада, 1 Игрок, Тетрис, Арканоид, Бесплатные игры, игры html5" />
+			<link rel="stylesheet" href="tetris.css" />
+	</head> 
+	<body>
+		<div class="instaall" >
+			<label onclick="install()">Добавить на главный экран и играть без интернета</label>
+		</div>
+		<div id="width" style="
+		text-align: center;
+		"></div>
+		<div id="height" style="
+		text-align: center;
+		"></div>
+		<div id="game"> 
+			<div class="main"></div>
+			
+			<div id="next-tetro"></div>
+			<div id="next-tetro2">
+				<script>
+					var start_again = "Старт";
+					var pause = "Пауза";
+					var Keep = "Продолжить игру...";
+					var correct = "Для корректного отображения поверните гаджет!";
+					
+					/* const scroeWidth = document.getElementById("width");
+						const scroeHeight = document.getElementById("height");
+						
+						scroeWidth.innerHTML = window.innerWidth;
+					scroeHeight.innerHTML  = window.innerHeight; */
+				</script>
+				<button id="start">Старт</button>
+				<button id="pause">Пауза</button>
+				<div  class="level">Уровень: <span id="level">2</span></div>
+				<div  class="score">Счет: <span id="score">20</span></div>
+			</div>
+			<div id="next-tetro3">
+				<div id="knopka_left"></div>
+				<div id="knopka_right" ></div> 
+				<div id="knopka_down" ></div> 
+				<div id="knopka_top" ></div>    
+			</div>
+		</div>
+		<div id="gameover">
+			<div class="game_ove"><a href="">[ Эх, игра окончена, попробуй еще ]</a></div>
+			 
+		</div>
+		<div id="gamevin"> 
+			<div class="game_ove"><a href="">[ Вы выиграли! Уряя! ]</a></div>
+			 
+		</div>
+		<script src="tetris.js"></script>
+	</body>
+</html>
